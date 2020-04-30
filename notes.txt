@@ -1,0 +1,8 @@
+create git repo and deploy to heroku
+create server.js file
+    make database - array with objects
+    create ajax request
+create html files
+    home page
+    reservation page
+    tables page
