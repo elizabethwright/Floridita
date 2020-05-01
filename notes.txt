@@ -1,8 +1,77 @@
-create git repo and deploy to heroku
-create server.js file
-    make database - array with objects
-    create ajax request
-create html files
-    home page
-    reservation page
-    tables page
+Create the front-end (visuals) for home page, reservation form, and reservation views.
+  - home.html 
+    - header
+    - buttons to view tables
+    - buttons to make a reservation
+  - tables.html
+    - list of current reservations
+    - list of waitlist reservations
+  - reservation.html 
+    - form for taking in reservation info
+      - name
+      - phone
+      - email
+      - unique id
+      - submit button
+      - alert
+        - you're reserveration has been made
+        - you're on the waitlist...we'll call you
+
+Create a basic server using Express.JS
+  - initialize an npm packag
+  - install Express
+  - server.JS
+    - require Express
+    - setup the express app
+    - setup the port (dynamic port)
+    - setup listener
+
+Create a few array variables that will hold the data
+  - list (array) of reservations
+  - list (array) of reservations on the waitlist
+
+Create tests for getting and posting table data
+  - GET "/api/reservations"
+    - should return an array
+    - should return an array of objects
+    - should recieve 200 hundred status code
+    - should be content type json
+  - GET "/api/waitlist"
+    - returns an array
+    - returns an array of objects
+    - 200 hundred status code
+    - content type json
+  - POST "/api/reservations"
+    - "should add a new object to the reserations array or to the waitlist array"
+    - "should send back a message"
+    - "should send back reservation made message if there is room in the reservation list"
+    - "should send back a sorry message if the reservation is added to the waitlist"
+    - "should return an err if nothing is sent in the request body"
+    - "should return an error if nothing in name field"
+    - "should return an error if nothing in phone field"
+    - "should return an error if nothing in email field"
+    - "should return an error if nothing in unique field"
+
+Create a set of routes for getting and posting table data
+  - "/api/reservations"
+    - returns json list of reservations
+    - GET request
+  - "/api/waitlist"
+    - GET request
+    - returns a json list of waitlisted reservations
+  - "/api/reservations"
+    - POST request
+    - receive a new reservation object in request body
+    - creates a new object in the reservation list array if there is room (5 table limit)
+    - othwerise, adds a reservation to the waitlist
+
+Create tests for our html routes
+  - 200 hundred status code
+  - content-type header html
+
+Create a set of routes for displaying the HTML pages
+  - "/" the home.html
+  - "/reservations" the reservations.html
+  - "/tables" the tables.html
+
+Use jQuery to run AJAX calls to GET and POST data from users to the Express server
